@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<controls:ExtendedShell  
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:views="clr-namespace:PerrijosGatijos.Views"
+    xmlns:controls="clr-namespace:PerrijosGatijos.Views.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PerrijosGatijos.AppShell">
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="150"
+              BackgroundColor="LightBlue">
+            <Image Source="logo1" Aspect="AspectFill"
+                   HeightRequest="150" HorizontalOptions="FillAndExpand"/>
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="Perrhijos-Gathijos"
+                TextColor="Chocolate"
+                VerticalTextAlignment="Center"
+                FontFamily="Poppins-SemiBold"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+    <FlyoutItem Title="Inicio">
+        <Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal">
+                <controls:IconControl ResourceId="Home" HeightRequest="25" WidthRequest="25" Margin="40,0,0,0"/>
+                <Label Text="Inicio" Padding="10,0,0,0" FontFamily="Poppins-SemiBold"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+        <Tab Title="Home" Icon="Home">
+            <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}"/>
+        </Tab>
+        <Tab Title="Mascota" Icon="Pet">
+            <ShellContent Title="Profile" ContentTemplate="{DataTemplate views:PetPage}"/>
+        </Tab>
+        <Tab Title="Map" Icon="Map">
+            <ShellContent ContentTemplate="{DataTemplate views:MapPage}"/>
+        </Tab>
+        <!--<ShellContent ContentTemplate="{DataTemplate views:PasswordRecoveryPage}"/>-->
+    </FlyoutItem>
+    <FlyoutItem Title="Registro">
+        <Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal">
+                <controls:IconControl ResourceId="Register" HeightRequest="25" WidthRequest="25" Margin="40,0,0,0"/>
+                <Label Text="Registro" Padding="10,0,0,0" FontFamily="Poppins-SemiBold"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+        <ShellContent ContentTemplate="{DataTemplate views:RegisterUserPage}" />
+        <!--<Tab Title="Home">
+            <ShellContent Title="Test" ContentTemplate="{DataTemplate views:PasswordRecoveryPage}"/>
+        </Tab>
+        <Tab Title="Profile">
+            <ShellContent Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}"/>
+        </Tab>-->
+    </FlyoutItem>
+    <FlyoutItem Title="Perfil">
+         <Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal">
+                <controls:IconControl ResourceId="Profile" HeightRequest="25" WidthRequest="25" Margin="40,0,0,0"/>
+                <Label Text="Perfil" Padding="10,0,0,0" FontFamily="Poppins-SemiBold"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
+
+    </FlyoutItem>
+    <Shell.FlyoutFooter>
+        <controls:FlyoutFooter/>
+    </Shell.FlyoutFooter>
+</controls:ExtendedShell>
+

@@ -1,0 +1,118 @@
+﻿using System;
+using PdfSharp.Xamarin.Forms;
+using System.Diagnostics;
+using PerrijosGatijos.Services;
+using Plugin.Media.Abstractions;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using PerrijosGatijos.Views;
+using System.IO;
+using System.Threading.Tasks;
+using PdfSharpCore.Drawing;
+
+namespace PerrijosGatijos.ViewModels
+{
+    public class PetPageViewModel : BaseViewModel
+    {
+
+
+        #region Propertys
+        private MediaFile _foto;
+
+        public MediaFile Foto
+        {
+            get { return _foto; }
+            set { SetProperty(ref _foto, value); }
+        }
+
+        private ImageSource _imageSource;
+
+        public ImageSource ImageSource
+        {
+            get { return _imageSource; }
+            set { SetProperty(ref _imageSource, value); }
+        }
+
+        private bool _isEnabled = true;
+        public bool IsEnabled
+        {
+            get { return _isEnabled; }
+            set { SetProperty(ref _isEnabled, value); }
+        }
+
+        #endregion
+
+        #region Commands
+        public Command PhotoCommand => new Command(TakePhoto);
+
+
+
+        public Command GeneratePdfCommand => new Command<PetPage>( async data =>
+        {
+            await GeneratePdf(data);
+        });
+
+        #endregion
+
+        public PetPageViewModel()
+        {
+        }
+
+        public  async void TakePhoto()
+        {
+            try
+            {
+               var actionSheet= await App.Current.MainPage.DisplayActionSheet("¿Que deseas realizar?", "Cancelar",null, "Tomar Foto", "Abrir Galeria");
+                switch (actionSheet)
+                {
+                    case "Cancel":
+                        await App.Navigation.PopModalAsync();
+                        break;
+                    case "Tomar Foto":
+                        Foto = await PhotoSevice.Instancia.Capture();
+                        if (Foto != null)
+                        {
+                            ImageSource = ImageSource.FromStream(() => Foto.GetStream());
+                        }
+                        break;
+                    case "Abrir Galeria":
+                        Foto = await PhotoSevice.Instancia.SelectFile();
+                        if (Foto != null)
+                        {
+                            ImageSource = ImageSource.FromStream(() => Foto.GetStream());
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                string error = ex.Message;
+            }
+        }
+
+        private async Task GeneratePdf(PetPage petPage)
+        {
+            IsEnabled = false;
+            IsBusy = true;
+            var pdf = PDFManager.GeneratePDFFromView(petPage.Content);
+            var basepath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var pdfpath = Path.Combine(basepath, "Carnet.pdf");
+            pdf.Save(pdfpath);
+
+            try
+            {
+                await Share.RequestAsync(new ShareFileRequest(new ShareFile(pdfpath)));
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+            }
+            IsBusy = false;
+            IsEnabled = true;
+        }
+    }
+}
+

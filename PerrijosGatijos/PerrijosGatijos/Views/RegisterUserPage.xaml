@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:PerrijosGatijos.Views.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="PerrijosGatijos.Views.RegisterUserPage"
+    Title="{Binding Title}"
+    Shell.TabBarIsVisible="False"
+    Shell.NavBarIsVisible="False"
+    Shell.FlyoutBehavior="Disabled">
+    <ContentPage.Resources>
+        <Style x:Key="Input" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+        <Style x:Key="LbOptions" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+        </Style>
+        <Style x:Key="BtnRegistrar" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Red"/>
+            <Setter Property="BorderRadius" Value="23"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HeightRequest" Value="46"/>
+            <Setter Property="Margin" Value="50,0"/>
+            <Setter Property="TextColor" Value="{StaticResource White}"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="CornerRadius" Value="50"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout>
+        <Grid HorizontalOptions="FillAndExpand" RowSpacing="20" ColumnSpacing="20" Padding="20,0,10,0">
+            
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" x:Name="lbNombre" Text="Nombre" Style="{StaticResource LbOptions}" />
+            <Entry Grid.Row="0" Grid.Column="1" Placeholder="Nombre" PlaceholderColor="{StaticResource PrimaryBlack}" Style="{StaticResource Input}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" x:Name="lbApellidoPaterno" Text="Apellido paterno" Style="{StaticResource LbOptions}" />
+            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Apellido paterno" PlaceholderColor="{StaticResource PrimaryBlack}" Style="{StaticResource Input}"/>
+            <Label Grid.Row="2" Grid.Column="0" x:Name="lbApellidoMaterno" Text="Apellido materno" Style="{StaticResource LbOptions}" />
+            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Apellido materno" PlaceholderColor="{StaticResource PrimaryBlack}" Style="{StaticResource Input}"/>
+
+             <Label Grid.Row="3" Grid.Column="0" x:Name="lbFechadenacimiento" Text="Fecha de nacimiento" Style="{StaticResource LbOptions}" />
+            <DatePicker Grid.Row="3" Grid.Column="1" Format="D">
+                <DatePicker.MinimumDate>
+                  <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Jan 1 1930</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MinimumDate>
+                    <DatePicker.MaximumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Dec 31 2050</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MaximumDate>
+
+                </DatePicker>
+
+
+             <Label Grid.Row="4" Grid.Column="0" x:Name="lbCorreo" Text="Correo" Style="{StaticResource LbOptions}"/>
+            <Entry Grid.Row="4" Grid.Column="1" Placeholder="Correo" PlaceholderColor="{StaticResource PrimaryBlack}" Style="{StaticResource Input}"/>
+            
+            <Label Grid.Row="5" Grid.Column="0" x:Name="lbTelefono" Text="Celular" Style="{StaticResource LbOptions}" />
+            <Entry Grid.Row="5" Grid.Column="1" Placeholder="Celular" PlaceholderColor="{StaticResource PrimaryBlack}" Style="{StaticResource Input}"/>
+            <Label Grid.Row="6" Grid.Column="0" Text="Selecciona Sexo" Style="{StaticResource LbOptions}"/>
+            <controls:PickerCustomControl Grid.Row="6" Grid.Column="1" Image="Stroke" BackgroundColor="{StaticResource White}" Title="Seleccione sexo">
+                <controls:PickerCustomControl.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Masculino</x:String>
+                        <x:String>Femenino</x:String>
+                    </x:Array>
+                </controls:PickerCustomControl.ItemsSource>
+            </controls:PickerCustomControl>
+
+                <Label Grid.Row="7" Grid.Column="0" Text="Selecciona entidad federatriva" Style="{StaticResource LbOptions}"/>
+                <controls:PickerCustomControl Grid.Row="7" Grid.Column="1" Image="Stroke" BackgroundColor="{StaticResource White}" Title="Seleccione entidad federativa">
+                <!--<controls:PickerCustomControl.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Masculino</x:String>
+                        <x:String>Femenino</x:String>
+                    </x:Array>
+                </controls:PickerCustomControl.ItemsSource>-->
+            </controls:PickerCustomControl>
+
+            <Label Grid.Row="8" Grid.Column="0" Text="Selecciona municipio" Style="{StaticResource LbOptions}"/>
+                <controls:PickerCustomControl Grid.Row="8" Grid.Column="1" Image="Stroke" BackgroundColor="{StaticResource White}" Title="Seleccione municipio">
+                <!--<controls:PickerCustomControl.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Masculino</x:String>
+                        <x:String>Femenino</x:String>
+                    </x:Array>
+                </controls:PickerCustomControl.ItemsSource>-->
+            </controls:PickerCustomControl>
+            
+        </Grid>
+            
+            <Button x:Name="btnGuardar" Text="Registrar" Style="{StaticResource BtnRegistrar}"  Command="{Binding RegisterUserCommand}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

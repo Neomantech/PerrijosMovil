@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:PerrijosGatijos.Views.Controls"
+    xmlns:ViewModels="clr-namespace:PerrijosGatijos.ViewModels"
+    xmlns:behaviors="clr-namespace:PerrijosGatijos.Helpers"
+    x:Class="PerrijosGatijos.Views.MapPage"
+    x:DataType="ViewModels:MapViewModel"
+    Title="Mapa">
+    <ContentPage.Content>
+        <!--<maps:CustomMap MapType="Street" IsShowingUser="True" MapPosition="{Binding MyPosition}" HasScrollEnabled="True" MapPins="{Binding AllPines}"/>-->
+        <maps:CustomMap MapType="Street" IsShowingUser="True" MapPosition="{Binding MyPosition}" HasScrollEnabled="True" HasZoomEnabled="True">
+            <maps:CustomMap.Behaviors>
+                <behaviors:MapBehavior ItemsSource="{Binding Items}"/>
+            </maps:CustomMap.Behaviors>
+        </maps:CustomMap>
+
+    </ContentPage.Content>
+</ContentPage>
+

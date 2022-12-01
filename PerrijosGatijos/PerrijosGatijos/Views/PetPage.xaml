@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:PerrijosGatijos.Views.Controls"
+    x:Class="PerrijosGatijos.Views.PetPage"
+    Title="Mascota"
+    x:Name="petPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="lbTitle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="Poppins-Bold"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+            <Style x:Key="lbData"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryBlue}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Poppins-Regular"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+
+            </Style>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar Pdf" Order="Primary" Priority="0" IsEnabled="{Binding IsEnabled}" Command="{Binding GeneratePdfCommand}"
+                     CommandParameter="{x:Reference petPage}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Frame Margin="10" BorderColor="{StaticResource PrimaryBlack}" CornerRadius="50"
+                   HeightRequest="60" WidthRequest="60" IsClippedToBounds="True"
+                   HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="{Binding ImageSource}"
+                   WidthRequest="100" HeightRequest="100" Aspect="AspectFill"
+                   Margin="-20">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotoCommand}">
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>-->
+            <Label Text="Nombre" Style="{StaticResource lbTitle}"/>
+            <Label Text="Sombra" Style="{StaticResource lbData}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Raza" Style="{StaticResource lbTitle}"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Sexo" Style="{StaticResource lbTitle}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Cobrador de Labrador" Style="{StaticResource lbData}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="Macho" Style="{StaticResource lbData}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"  Text="Fecha de nacimoento" Style="{StaticResource lbTitle}"/>
+                <Label Grid.Row="0" Grid.Column="1"  Text="Color"  Style="{StaticResource lbTitle}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="15/05/2015" Style="{StaticResource lbData}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="Negro" Style="{StaticResource lbData}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

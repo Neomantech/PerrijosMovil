@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:Effects="clr-namespace:PerrijosGatijos.Effects"
+    xmlns:ViewModels="clr-namespace:PerrijosGatijos.ViewModels"
+    x:Class="PerrijosGatijos.Views.LoginPage"
+    x:DataType="ViewModels:LoginPageViewModel"
+    BackgroundColor="#FFDD82"
+    Shell.TabBarIsVisible="False"
+    Shell.NavBarIsVisible="False"
+    Shell.FlyoutBehavior="Disabled">
+    <ContentPage.Resources>
+        <Style x:Key="ButtonAccesar" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="TextColor" Value="{StaticResource White}"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Poppins-Bold"/>
+        </Style>
+
+        <Style x:Key="Input" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+        <Style x:Key="EntryRow" TargetType="StackLayout">
+            <Setter Property="Margin" Value="0,15,0,0" />
+        </Style>
+
+        <Style x:Key="btnregistro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#FFDD82"/>
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="FontFamily" Value="Poppins-Regular"/>
+        </Style>
+        <Style x:Key="primaryLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+
+        <Grid x:Name="LayoutRoot" RowDefinitions="*,auto">
+            <StackLayout Grid.Row="0">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="logo1"
+                           Aspect="AspectFit" Margin="0" HeightRequest="128" WidthRequest="128"
+                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="End">
+
+                <yummy:PancakeView CornerRadius="50,0,0,0" Padding="20,20,20,0"
+                                   BackgroundColor="{StaticResource Background}">
+                    <yummy:PancakeView.Effects>
+                        <Effects:BottomSafeAreaEffect></Effects:BottomSafeAreaEffect>
+                    </yummy:PancakeView.Effects>
+                    <StackLayout>
+
+                        <ActivityIndicator IsRunning="{Binding IsBusy, Mode=TwoWay}" Grid.RowSpan="3" Color="Red" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                        <StackLayout Style="{StaticResource EntryRow}"  >
+                            <Entry Text="{Binding Login.User, Mode=TwoWay}" x:Name="EmailEntry"  Placeholder="Usuario" PlaceholderColor="Black" Keyboard="Email" Style="{StaticResource Input}"/>
+
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource EntryRow}">
+                            <Entry Text="{Binding Login.Password, Mode=TwoWay}" x:Name="PasswordEntry"  Placeholder="Contraseña" PlaceholderColor="Black" IsPassword="True" Style="{StaticResource Input}"/>
+
+                        </StackLayout>
+                        <Button Margin="0,10" Text="Accesar" Style="{StaticResource ButtonAccesar}"  Command="{Binding LoginCommand}" />
+                        <Button x:Name="btNOlvide" Margin="0,10" Text="Olvide contrseña" Style="{StaticResource btnregistro}"  Command="{Binding FogotCommand}" />
+                        <Label Text="Ó" Style="{StaticResource primaryLabel}"/>
+                        <Button x:Name="btnRegistro" Margin="0,10" Text="Registrate" Style="{StaticResource btnregistro}" Command="{Binding RegisterUserCommand}"/>
+                    </StackLayout>
+                </yummy:PancakeView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
