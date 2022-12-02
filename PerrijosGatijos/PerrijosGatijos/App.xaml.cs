@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using PerrijosGatijos.Helpers;
@@ -16,6 +19,8 @@ namespace PerrijosGatijos
 {
     public partial class App : Application
     {
+
+        //private string secretAppiOS=""
         private ServiceCollection services;
 
         /// <summary>

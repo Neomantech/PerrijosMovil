@@ -30,6 +30,8 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2515" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\" />
@@ -78,6 +80,8 @@
     <None Remove="Resources\Icons\Logo.svg" />
     <None Remove="Xam.Plugin.Media" />
     <None Remove="Resources\Icons\Profile.svg" />
+    <None Remove="Microsoft.AppCenter.Crashes" />
+    <None Remove="Microsoft.AppCenter.Analytics" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

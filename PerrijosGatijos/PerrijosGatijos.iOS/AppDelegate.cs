@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using Foundation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using UIKit;
 
@@ -27,6 +30,10 @@ namespace PerrijosGatijos.iOS
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Xamarin.FormsMaps.Init();
             PdfSharp.Xamarin.Forms.iOS.Platform.Init();
+
+            AppCenter.Start(Constants.AppCenteriOS,
+                typeof(Analytics), typeof(Crashes));
+
             LoadApplication(new App(AddServices));
 
             return base.FinishedLaunching(app, options);

@@ -10,6 +10,9 @@ using Xamarin.Android.Net;
 using System.Net.Http;
 using Android;
 using Plugin.CurrentActivity;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace PerrijosGatijos.Droid
 {
@@ -27,6 +30,9 @@ namespace PerrijosGatijos.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            AppCenter.Start(Constants.AppCenterAndroid,
+                typeof(Analytics), typeof(Crashes));
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
