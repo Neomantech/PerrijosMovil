@@ -17,7 +17,6 @@ namespace PerrijosGatijos
 		public const string AppCenteriOS = "35bc962d-42ba-4077-a279-d114e1f8042e";
         public const string AppCenterAndroid = "66308675-5976-4995-8797-797b5863c64c";
 
-
     }
 }
 

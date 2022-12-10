@@ -79,9 +79,11 @@
     <None Remove="Views\Base\" />
     <None Remove="Resources\Icons\Logo.svg" />
     <None Remove="Xam.Plugin.Media" />
-    <None Remove="Resources\Icons\Profile.svg" />
     <None Remove="Microsoft.AppCenter.Crashes" />
     <None Remove="Microsoft.AppCenter.Analytics" />
+    <None Remove="Resources\Icons\Map.svg" />
+    <None Remove="Resources\Icons\Pet.svg" />
+    <None Remove="Resources\Icons\Profile.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -114,6 +116,8 @@
     <EmbeddedResource Include="Resources\Icons\Home.svg" />
     <EmbeddedResource Include="Resources\Icons\Register.svg" />
     <EmbeddedResource Include="Resources\Icons\Logo.svg" />
+    <EmbeddedResource Include="Resources\Icons\Map.svg" />
+    <EmbeddedResource Include="Resources\Icons\Pet.svg" />
     <EmbeddedResource Include="Resources\Icons\Profile.svg" />
   </ItemGroup>
   <ItemGroup>

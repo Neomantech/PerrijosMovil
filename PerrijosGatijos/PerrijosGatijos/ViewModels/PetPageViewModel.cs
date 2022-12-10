@@ -9,6 +9,8 @@ using PerrijosGatijos.Views;
 using System.IO;
 using System.Threading.Tasks;
 using PdfSharpCore.Drawing;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
 
 namespace PerrijosGatijos.ViewModels
 {
@@ -101,6 +103,7 @@ namespace PerrijosGatijos.ViewModels
             var basepath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var pdfpath = Path.Combine(basepath, "Carnet.pdf");
             pdf.Save(pdfpath);
+            Analytics.TrackEvent("Pdf creado de manera exitosa");
 
             try
             {
@@ -108,6 +111,7 @@ namespace PerrijosGatijos.ViewModels
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex);
                 Debug.Write(ex.Message);
             }
             IsBusy = false;

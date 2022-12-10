@@ -22,12 +22,12 @@
         <Shell.ItemTemplate>
         <DataTemplate>
             <StackLayout Orientation="Horizontal">
-                <controls:IconControl ResourceId="Home" HeightRequest="25" WidthRequest="25" Margin="40,0,0,0"/>
-                <Label Text="Inicio" Padding="10,0,0,0" FontFamily="Poppins-SemiBold"/>
+                <controls:IconControl ResourceId="Home" HeightRequest="25" WidthRequest="25" Margin="40,20,0,0"/>
+                <Label Text="Inicio" Padding="10,20,0,0" FontFamily="Poppins-SemiBold"/>
             </StackLayout>
         </DataTemplate>
     </Shell.ItemTemplate>
-        <Tab Title="Home" Icon="Home">
+        <!--<Tab Title="Home" Icon="Home">
             <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}"/>
         </Tab>
         <Tab Title="Mascota" Icon="Pet">
@@ -35,19 +35,36 @@
         </Tab>
         <Tab Title="Map" Icon="Map">
             <ShellContent ContentTemplate="{DataTemplate views:MapPage}"/>
-        </Tab>
-        <!--<ShellContent ContentTemplate="{DataTemplate views:PasswordRecoveryPage}"/>-->
+        </Tab>-->
+        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Registro">
+    <FlyoutItem Title="Mascota">
         <Shell.ItemTemplate>
         <DataTemplate>
             <StackLayout Orientation="Horizontal">
-                <controls:IconControl ResourceId="Register" HeightRequest="25" WidthRequest="25" Margin="40,0,0,0"/>
-                <Label Text="Registro" Padding="10,0,0,0" FontFamily="Poppins-SemiBold"/>
+                <controls:IconControl ResourceId="Pet" HeightRequest="25" WidthRequest="25" Margin="40,20,0,0"/>
+                <Label Text="Mascota" Padding="10,20,0,0" FontFamily="Poppins-SemiBold"/>
             </StackLayout>
         </DataTemplate>
     </Shell.ItemTemplate>
-        <ShellContent ContentTemplate="{DataTemplate views:RegisterUserPage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:PetPage}" />
+        <!--<Tab Title="Home">
+            <ShellContent Title="Test" ContentTemplate="{DataTemplate views:PasswordRecoveryPage}"/>
+        </Tab>
+        <Tab Title="Profile">
+            <ShellContent Title="Profile" ContentTemplate="{DataTemplate views:ProfilePage}"/>
+        </Tab>-->
+    </FlyoutItem>
+    <FlyoutItem Title="Mapa">
+        <Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal">
+                <controls:IconControl ResourceId="Map" HeightRequest="25" WidthRequest="25" Margin="40,20,0,0"/>
+                <Label Text="Veterinarias" Padding="10,20,0,0" FontFamily="Poppins-SemiBold"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+        <ShellContent ContentTemplate="{DataTemplate views:MapPage}" />
         <!--<Tab Title="Home">
             <ShellContent Title="Test" ContentTemplate="{DataTemplate views:PasswordRecoveryPage}"/>
         </Tab>
@@ -59,8 +76,8 @@
          <Shell.ItemTemplate>
         <DataTemplate>
             <StackLayout Orientation="Horizontal">
-                <controls:IconControl ResourceId="Profile" HeightRequest="25" WidthRequest="25" Margin="40,0,0,0"/>
-                <Label Text="Perfil" Padding="10,0,0,0" FontFamily="Poppins-SemiBold"/>
+                <controls:IconControl ResourceId="Profile" HeightRequest="25" WidthRequest="25" Margin="40,20,0,0"/>
+                <Label Text="Perfil" Padding="10,20,0,0" FontFamily="Poppins-SemiBold"/>
             </StackLayout>
         </DataTemplate>
     </Shell.ItemTemplate>
