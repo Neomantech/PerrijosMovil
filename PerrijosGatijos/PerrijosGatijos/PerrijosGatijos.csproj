@@ -84,6 +84,7 @@
     <None Remove="Resources\Icons\Map.svg" />
     <None Remove="Resources\Icons\Pet.svg" />
     <None Remove="Resources\Icons\Profile.svg" />
+    <None Remove="Resources\Icons\ProfileUser.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -119,6 +120,7 @@
     <EmbeddedResource Include="Resources\Icons\Map.svg" />
     <EmbeddedResource Include="Resources\Icons\Pet.svg" />
     <EmbeddedResource Include="Resources\Icons\Profile.svg" />
+    <EmbeddedResource Include="Resources\Icons\ProfileUser.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PerrijosGatijos.Models\PerrijosGatijos.Models.csproj" />

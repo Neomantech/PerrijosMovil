@@ -64,7 +64,8 @@ namespace PerrijosGatijos
             }
             else
             {
-                MainPage = new NavigationPage(new LoginPage());
+                //MainPage = new NavigationPage(new LoginPage());
+                MainPage = new NavigationPage(new CheckCodePage());
             }
         }
 

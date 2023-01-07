@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:Effects="clr-namespace:PerrijosGatijos.Effects"
+    BackgroundColor="#FFDD82"
+    x:Class="PerrijosGatijos.Views.CheckCodePage">
+    <ContentPage.Resources>
+        <Style x:Key="ButtonAccesar" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="TextColor" Value="{StaticResource White}"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Poppins-Bold"/>
+        </Style>
+        <Style x:Key="Input" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+        <Style x:Key="EntryRow" TargetType="StackLayout">
+            <Setter Property="Margin" Value="0,15,0,0" />
+        </Style>
+        <Style x:Key="btnregistro" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#FFDD82"/>
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="FontFamily" Value="Poppins-Regular"/>
+        </Style>
+        <Style x:Key="primaryLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid x:Name="LayoutRoot" RowDefinitions="*,auto">
+            <StackLayout Grid.Row="0">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="logo1"
+                           Aspect="AspectFit" Margin="0" HeightRequest="128" WidthRequest="128"
+                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="End">
+                <yummy:PancakeView CornerRadius="50,0,0,0" Padding="20,20,20,0"
+                                   BackgroundColor="{StaticResource Background}">
+                    <yummy:PancakeView.Effects>
+                        <Effects:BottomSafeAreaEffect></Effects:BottomSafeAreaEffect>
+                    </yummy:PancakeView.Effects>
+                    <StackLayout>
+                        <StackLayout Style="{StaticResource EntryRow}"  >
+                            <Entry x:Name="CodeEntry"  Placeholder="Ingresa codigo" PlaceholderColor="Black"
+                                   Keyboard="Numeric" Style="{StaticResource Input}"/>
+                        </StackLayout>
+                        <Button Margin="0,10" Text="Validar codigo" Style="{StaticResource ButtonAccesar}" IsEnabled="False"  Command="{Binding LoginCommand}" />
+                    </StackLayout>
+                </yummy:PancakeView>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
+<!--
+<StackLayout>
+            <Label Text="Ingresa codigo de verificación"/>
+            <Entry Placeholder="Ingresa codigo"/>
+        </StackLayout>
+-->
