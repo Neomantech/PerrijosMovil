@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:Effects="clr-namespace:PerrijosGatijos.Effects"
+    xmlns:ViewModels="clr-namespace:PerrijosGatijos.ViewModels"
     BackgroundColor="#FFDD82"
-    x:Class="PerrijosGatijos.Views.CheckCodePage">
+    x:Class="PerrijosGatijos.Views.CheckCodePage"
+    x:DataType="ViewModels:CheckCodePageViewModel">
     <ContentPage.Resources>
         <Style x:Key="ButtonAccesar" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBlue}"/>
@@ -55,10 +57,10 @@
                     </yummy:PancakeView.Effects>
                     <StackLayout>
                         <StackLayout Style="{StaticResource EntryRow}"  >
-                            <Entry x:Name="CodeEntry"  Placeholder="Ingresa codigo" PlaceholderColor="Black"
-                                   Keyboard="Numeric" Style="{StaticResource Input}"/>
+                            <Entry x:Name="CodeEntry" Text="{Binding ValidateCode.Code, Mode=TwoWay}"  Placeholder="Ingresa codigo" PlaceholderColor="Black"
+                                   Keyboard="Numeric" Style="{StaticResource Input}" />
                         </StackLayout>
-                        <Button Margin="0,10" Text="Validar codigo" Style="{StaticResource ButtonAccesar}" IsEnabled="False"  Command="{Binding LoginCommand}" />
+                        <Button Margin="0,10" Text="Validar codigo" Style="{StaticResource ButtonAccesar}" Command="{Binding GotoLoginCommand}" />
                     </StackLayout>
                 </yummy:PancakeView>
 

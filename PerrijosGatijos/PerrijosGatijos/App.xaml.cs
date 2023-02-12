@@ -95,6 +95,7 @@ namespace PerrijosGatijos
             services.AddTransient<FlyoutFooterViewModel>();
             services.AddTransient<PetPageViewModel>();
             services.AddTransient<ProfilePageViewModel>();
+            services.AddTransient<CheckCodePageViewModel>();
 
             // Register Services
             services.AddSingleton<IPerrijosGatijosApi>(provider =>

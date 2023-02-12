@@ -9,11 +9,13 @@
     <None Remove="Newtonsoft.Json" />
     <None Remove="Api\" />
     <None Remove="Enumerators\" />
+    <None Remove="ValidateCode\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
     <Folder Include="Api\" />
     <Folder Include="Enumerators\" />
+    <Folder Include="ValidateCode\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
