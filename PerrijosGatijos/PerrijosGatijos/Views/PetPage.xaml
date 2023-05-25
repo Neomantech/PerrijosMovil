@@ -10,7 +10,7 @@
         <ResourceDictionary>
             <Style x:Key="lbTitle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryBlack}, Dark={StaticResource White}}"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="FontFamily" Value="Poppins-Bold"/>
                 <Setter Property="VerticalTextAlignment" Value="Start"/>

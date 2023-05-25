@@ -36,6 +36,10 @@ namespace PerrijosGatijos.ViewModels
         public LoginPageViewModel(IPerrijosGatijosApi api)
 		{
             _api = api;
+#if DEBUG
+            Login.User = "User";
+            Login.Password = "12345";
+#endif
         }
 
         public async void login()

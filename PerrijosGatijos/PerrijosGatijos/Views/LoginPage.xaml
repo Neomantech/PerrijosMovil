@@ -7,7 +7,7 @@
     xmlns:ViewModels="clr-namespace:PerrijosGatijos.ViewModels"
     x:Class="PerrijosGatijos.Views.LoginPage"
     x:DataType="ViewModels:LoginPageViewModel"
-    BackgroundColor="#FFDD82"
+    BackgroundColor="{AppThemeBinding Light=#FFDD82, Dark={StaticResource PrimaryBlack}}"
     Shell.TabBarIsVisible="False"
     Shell.NavBarIsVisible="False"
     Shell.FlyoutBehavior="Disabled">
@@ -39,7 +39,7 @@
             <Setter Property="FontFamily" Value="Poppins-Regular"/>
         </Style>
         <Style x:Key="primaryLabel" TargetType="Label">
-            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryBlack},Dark={StaticResource White}}"/>
             <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontFamily" Value="Poppins-Regular" />
@@ -61,7 +61,7 @@
             <StackLayout Grid.Row="1" VerticalOptions="End">
 
                 <yummy:PancakeView CornerRadius="50,0,0,0" Padding="20,20,20,0"
-                                   BackgroundColor="{StaticResource Background}">
+                                   BackgroundColor="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource PrimaryBlack}}">
                     <yummy:PancakeView.Effects>
                         <Effects:BottomSafeAreaEffect></Effects:BottomSafeAreaEffect>
                     </yummy:PancakeView.Effects>

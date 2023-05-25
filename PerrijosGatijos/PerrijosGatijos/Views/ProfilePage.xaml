@@ -9,19 +9,21 @@
     <ContentPage.Resources>
         <Style x:Key="lbTitle" TargetType="Label">
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryBlack},Dark={StaticResource White}}"/>
             <Setter Property="FontFamily" Value="Poppins-SemiBold"/>
         </Style>
 
         <Style x:Key="lbCuenta" TargetType="Label">
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}"/>
+                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryBlack},Dark={StaticResource White}}"/>
+
             <Setter Property="FontFamily" Value="Poppins-Regular"/>
         </Style>
         <Style x:Key="stlMainFrame" TargetType="Frame">
             <Setter Property="TranslationY" Value="{OnPlatform iOS='-150', Android='-33'}"/>
             <Setter Property="HeightRequest" Value="{OnPlatform iOS='135', Android='228'}"/>
             <Setter Property="HasShadow" Value="False" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White,Dark=Black}"/>
         </Style>
         <Style x:Key="stlBoardTitle" TargetType="Label">
        <Setter Property="Padding" Value="0,30,0,5"/>
@@ -39,13 +41,13 @@
 
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid BackgroundColor="#FFDD82">
+        <Grid BackgroundColor="{AppThemeBinding Light=#FFDD82, Dark={StaticResource White}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!--<Image Grid.Row="0" Source="ProfileUser" VerticalOptions="Start" />-->
             <controls:IconControl Grid.Row="0" VerticalOptions="Start" ResourceId="ProfileUser" HeightRequest="400"/>
-            <StackLayout Grid.Row="0" BackgroundColor="White" VerticalOptions="End">
+            <StackLayout Grid.Row="0" BackgroundColor="{AppThemeBinding Light={StaticResource White},Dark={StaticResource PrimaryBlack}}" VerticalOptions="End">
      <Frame CornerRadius="40" Style="{StaticResource stlMainFrame}">
                     <Grid Padding="25,10,25,0" RowSpacing="0"> 
                    <Grid.ColumnDefinitions>

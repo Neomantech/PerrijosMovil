@@ -50,5 +50,7 @@
 	<string>Esta aplicación necesita acceso a la galería de fotos.</string>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

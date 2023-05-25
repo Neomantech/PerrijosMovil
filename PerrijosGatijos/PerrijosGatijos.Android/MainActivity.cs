@@ -13,6 +13,7 @@ using Plugin.CurrentActivity;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using AndroidX.AppCompat.App;
 
 namespace PerrijosGatijos.Droid
 {
@@ -24,7 +25,10 @@ namespace PerrijosGatijos.Droid
         readonly string[] PermissionLocation =
         {
             Manifest.Permission.AccessCoarseLocation,
-            Manifest.Permission.AccessFineLocation
+            Manifest.Permission.AccessFineLocation,
+            Manifest.Permission.ReadExternalStorage,
+            Manifest.Permission.ManageExternalStorage,
+            Manifest.Permission.WriteExternalStorage
         };
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -42,6 +46,9 @@ namespace PerrijosGatijos.Droid
             LoadApplication(new App(AddServices));
 
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
+            //Disable Dark Mode
+            AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
 
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

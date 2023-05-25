@@ -57,14 +57,20 @@ namespace PerrijosGatijos
         {
             InitializeComponent();
             SetupServices(addPlatformServices);
-            if (Settings.IsLoggedIn)
+            if (Settings.IsCodeIn)
             {
-                MainPage = new AppShell();
-                //MainPage = new MainPage();
+                if (Settings.IsLoggedIn)
+                {
+                    MainPage = new AppShell();
+                    //MainPage = new MainPage();
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new LoginPage());
+                }
             }
             else
             {
-                //MainPage = new NavigationPage(new LoginPage());
                 MainPage = new NavigationPage(new CheckCodePage());
             }
         }

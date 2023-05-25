@@ -21,6 +21,8 @@ namespace PerrijosGatijos.Helpers
         private static readonly string SettingsDefault = string.Empty;
         private const string IsLoggedInTokenKey = "isloggedid_key";
         private static readonly bool IsLoggedInTokenDefault = false;
+        private const string IsLCodeInTokenKey = "iscode_key";
+        private static readonly bool IsCodeInTokenDefault = false;
 
         #endregion
 
@@ -41,6 +43,12 @@ namespace PerrijosGatijos.Helpers
         {
             get { return AppSettings.GetValueOrDefault(IsLoggedInTokenKey, IsLoggedInTokenDefault); }
             set { AppSettings.AddOrUpdateValue(IsLoggedInTokenKey, value); }
+        }
+
+        public static bool IsCodeIn
+        {
+            get { return AppSettings.GetValueOrDefault(IsLCodeInTokenKey, IsCodeInTokenDefault); }
+            set { AppSettings.AddOrUpdateValue(IsLCodeInTokenKey, value); }
         }
     }
 }

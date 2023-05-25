@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using PdfSharpCore.Drawing;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
+using PerrijosGatijos.Models.Interfaces;
 
 namespace PerrijosGatijos.ViewModels
 {
@@ -99,15 +100,13 @@ namespace PerrijosGatijos.ViewModels
         {
             IsEnabled = false;
             IsBusy = true;
+            var fileName = Constants.PdfName;
             var pdf = PDFManager.GeneratePDFFromView(petPage.Content);
-            var basepath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var pdfpath = Path.Combine(basepath, "Carnet.pdf");
-            pdf.Save(pdfpath);
-            Analytics.TrackEvent("Pdf creado de manera exitosa");
-
             try
             {
-                await Share.RequestAsync(new ShareFileRequest(new ShareFile(pdfpath)));
+                DependencyService.Get<IPdfSave>().Save(pdf, fileName);
+                Analytics.TrackEvent("Pdf creado de manera exitosa");
+
             }
             catch (Exception ex)
             {

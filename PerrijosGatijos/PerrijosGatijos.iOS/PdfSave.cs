@@ -1,37 +1,33 @@
 ﻿using System;
+using System.IO;
 using PdfSharpCore.Pdf;
+using PerrijosGatijos.iOS;
 using PerrijosGatijos.Models.Interfaces;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(PdfSave))]
 namespace PerrijosGatijos.iOS
 {
 	public class PdfSave: IPdfSave
 	{
 	
-        public void Save(PdfDocument doc, string fileName)
+        public async void Save(PdfDocument doc, string fileName)
         {
-			string path = System.IO.Path.GetTempPath() + fileName;
+            var basepath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			var pdfpath = Path.Combine(basepath, fileName);
 
-			doc.Save(System.IO.Path.GetTempPath() + fileName);
+            doc.Save(fileName);
+			doc.Close();
 
-			global::Xamarin.Forms.Application.Current.MainPage.DisplayAlert(
+			await global::Xamarin.Forms.Application.Current.MainPage.DisplayAlert(
 				title: "Success",
-				message: $"Your PDF generated and saved @ {path}",
+				message: $"Your PDF generated and saved @ {fileName}",
 				cancel: "OK");
-		}
+
+            await Launcher.OpenAsync(new OpenFileRequest(Path.GetFileName(fileName), new ReadOnlyFile(fileName)));
+
+            //await global::Xamarin.Essentials.Share.RequestAsync(new ShareFileRequest(new ShareFile(pdfpath)));
+        }
     }
 }
-
-//var basepath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-//var pdfpath = Path.Combine(basepath, "Carnet.pdf");
-////DependencyService.Get<IPdfSave>().Save(pdf, "Carnet.pdf");
-//pdf.Save(pdfpath);
-
-//         try
-//         {
-//             await Share.RequestAsync(new ShareFileRequest(new ShareFile(pdfpath)));
-
-//}
-//catch (Exception ex)
-//         {
-//             Debug.Write(ex.Message);
-//         }

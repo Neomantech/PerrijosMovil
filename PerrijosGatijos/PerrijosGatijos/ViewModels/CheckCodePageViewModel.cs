@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using PerrijosGatijos.Views;
 using PerrijosGatijos.Models.ValidateCode;
+using PerrijosGatijos.Helpers;
 
 namespace PerrijosGatijos.ViewModels
 {
@@ -20,6 +21,9 @@ namespace PerrijosGatijos.ViewModels
 
         public CheckCodePageViewModel()
         {
+#if DEBUG
+            ValidateCode.Code = "12345";
+#endif
         }
 
         public async void GoToLogin()
@@ -32,6 +36,7 @@ namespace PerrijosGatijos.ViewModels
             {
                 if (ValidateCode.Code=="12345")
                 {
+                    Settings.IsCodeIn = true;
                     await App.Navigation.PushAsync(new LoginPage());
 
                 }
