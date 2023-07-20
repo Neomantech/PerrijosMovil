@@ -57,22 +57,23 @@ namespace PerrijosGatijos
         {
             InitializeComponent();
             SetupServices(addPlatformServices);
-            if (Settings.IsCodeIn)
-            {
-                if (Settings.IsLoggedIn)
-                {
-                    MainPage = new AppShell();
-                    //MainPage = new MainPage();
-                }
-                else
-                {
-                    MainPage = new NavigationPage(new LoginPage());
-                }
-            }
-            else
-            {
-                MainPage = new NavigationPage(new CheckCodePage());
-            }
+            //if (Settings.IsCodeIn)
+            //{
+            //    if (Settings.IsLoggedIn)
+            //    {
+            //        MainPage = new AppShell();
+            //        //MainPage = new MainPage();
+            //    }
+            //    else
+            //    {
+            //        MainPage = new NavigationPage(new LoginPage());
+            //    }
+            //}
+            //else
+            //{
+            //    MainPage = new NavigationPage(new CheckCodePage());
+            //}
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         /// <summary>
@@ -133,6 +134,7 @@ namespace PerrijosGatijos
 
         private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
+#if DEBUG
             switch (e.NetworkAccess)
             {
                 case NetworkAccess.Internet:
@@ -153,6 +155,7 @@ namespace PerrijosGatijos
                 default:
                     break;
             }
+#endif
         }
 
         protected override void OnStart ()

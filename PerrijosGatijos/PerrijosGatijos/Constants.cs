@@ -13,7 +13,11 @@ namespace PerrijosGatijos
         public const string TokenExpires = "token_expires";
         public const string RefreshToken = "refresh_token";
         public const string RefreshTokenExpires = "refresh_token_expires";
-		public const string PdfName = "Carnet.pdf";
+		public const string UserKey = "username_credentials";
+		public const string PasswordKey = "password";
+		public const string CredentialsSaved = "credentials_saved";
+        public const string SkipOnboardingKey = "skip_onboarding";
+        public const string PdfName = "Carnet.pdf";
 
 
 		//public const string AppCenteriOS = "35bc962d-42ba-4077-a279-d114e1f8042e";

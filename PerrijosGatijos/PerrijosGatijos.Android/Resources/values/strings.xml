@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+  <string name="msg_accept">Accept</string>
+  <string name="msg_cancel">Cancel</string>
+  <!-- Fingerprint -->
+  <string name="fingerprintDialogNotRecognized">Unrecognized Fingerprint</string>
+  <string name="fingerprintDialogOK">Correct authentication</string>
+  <string name="fingerprintDialogStatus">Identify with your fingerprint</string>
+  <string name="fingerprintDialogAccess">Access with your fingerprint</string>
+  <string name="fingerprintDialogRegister">
+    Do you want to recover your password using your fingerprint?
+  </string>
+  <string name="fingerprintDialogTryAgain">Authentication error. Try again</string>
+  <string name="fingerPrintNotCorrect">Incorrect fingerprint</string>
+  <string name="fingerPrintNotCorrectDescription">
+    Identification was not completed. Fingerprint was attempted
+    3 times without success
+  </string>
+</resources>

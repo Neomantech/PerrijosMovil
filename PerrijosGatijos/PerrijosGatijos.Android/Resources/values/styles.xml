@@ -22,4 +22,10 @@
     <item name="android:windowContentOverlay">@null</item>
     <item name="android:windowActionBar">true</item>
   </style>
+<!--Finger Print-->
+  <style name="bottom_up_dialog_animation">
+    <item name="android:windowEnterAnimation">@anim/slide_up_animation</item>
+    <item name="android:windowExitAnimation">@anim/slide_down_animation</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
 </resources>

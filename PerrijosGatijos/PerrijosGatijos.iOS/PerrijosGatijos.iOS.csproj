@@ -74,6 +74,7 @@
     <Compile Include="Effects\iOSTopSafeAreaEffect.cs" />
     <Compile Include="FontExtensions.cs" />
     <Compile Include="Renderers\iOSExtendedShellRenderer.cs" />
+    <Compile Include="Services\BiometryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -201,6 +202,10 @@
       <Project>{B12F975C-6446-419C-8810-FAC587A0FD77}</Project>
       <Name>PerrijosGatijos.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\PerrijosGatijos.Services\PerrijosGatijos.Services.csproj">
+      <Project>{F2E6AB79-FF7E-444C-BF10-61694C83A782}</Project>
+      <Name>PerrijosGatijos.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />
@@ -209,6 +214,7 @@
     <Folder Include="Effects\" />
     <Folder Include="Assets.xcassets\Home.imageset\" />
     <Folder Include="Assets.xcassets\Map.imageset\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Home.svg" />

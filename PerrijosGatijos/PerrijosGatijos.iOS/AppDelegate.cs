@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using Biometry.Core.Services;
 using Foundation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
+using PerrijosGatijos.iOS.Services;
 using UIKit;
 
 namespace PerrijosGatijos.iOS
@@ -44,7 +46,7 @@ namespace PerrijosGatijos.iOS
             //services.AddSingleton<ILocationService, iOS.Services.LocationService>();
             //services.AddSingleton<IDBPath, DBPath>();
             //services.AddSingleton<IFirebaseService, FirbaseService>();
-            //services.AddSingleton<IBiometryService, BiometryService>();
+            services.AddSingleton<IBiometryService, BiometryService>();
             //services.AddSingleton<IAnalyticsEvents, AnalyticsEvents>();
             services.AddTransient<HttpClient>(provider => new HttpClient(new NSUrlSessionHandler()));
         }

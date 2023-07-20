@@ -14,6 +14,8 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using AndroidX.AppCompat.App;
+using Biometry.Core.Services;
+using Biometry.Droid.Services;
 
 namespace PerrijosGatijos.Droid
 {
@@ -28,7 +30,8 @@ namespace PerrijosGatijos.Droid
             Manifest.Permission.AccessFineLocation,
             Manifest.Permission.ReadExternalStorage,
             Manifest.Permission.ManageExternalStorage,
-            Manifest.Permission.WriteExternalStorage
+            Manifest.Permission.WriteExternalStorage,
+            Manifest.Permission.UseFingerprint
         };
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -67,7 +70,7 @@ namespace PerrijosGatijos.Droid
         {
             //services.AddSingleton<IDBPath, DBPath>();
             //services.AddSingleton<IFirebaseService, FirbaseService>();
-            //services.AddSingleton<IBiometryService, BiometryService>();
+            services.AddSingleton<IBiometryService, BiometryService>();
             //services.AddSingleton<ILocationService, Droid.Services.LocationService>();
             //services.AddSingleton<IAnalyticsEvents, AnalyticsEvents>();
             services.AddTransient(provider => new HttpClient(new AndroidClientHandler()

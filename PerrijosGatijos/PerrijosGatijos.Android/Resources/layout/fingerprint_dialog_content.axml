@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fingerprint_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="8dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="16dp">
+    <TextView
+        android:id="@+id/tvFingerprintDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Acceso con Huella"
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:textColor="#FF000000" />
+    <ImageView
+        android:id="@+id/ivFingerprintIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvFingerprintDescription"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/icon_finger" />
+    <TextView
+        android:id="@+id/tvFingerprintStatus"
+        android:textColor="#FF000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivFingerprintIcon"
+        android:layout_alignTop="@+id/ivFingerprintIcon"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/ivFingerprintIcon"
+        android:gravity="center_vertical"
+        android:text="Identifiquese con su huella digital" />
+</RelativeLayout>
+

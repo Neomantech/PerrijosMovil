@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <BuildWithMSBuildOnMono>true</BuildWithMSBuildOnMono>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -85,6 +86,8 @@
     <None Remove="Resources\Icons\Pet.svg" />
     <None Remove="Resources\Icons\Profile.svg" />
     <None Remove="Resources\Icons\ProfileUser.svg" />
+    <None Remove="Resources\Icons\Fingerprint.svg" />
+    <None Remove="Converter\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -106,6 +109,7 @@
     <Folder Include="Models\Class\MockMapModel\" />
     <Folder Include="ViewModels\Controls\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Converter\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Fonts\Poppins-Bold.ttf" />
@@ -121,6 +125,7 @@
     <EmbeddedResource Include="Resources\Icons\Pet.svg" />
     <EmbeddedResource Include="Resources\Icons\Profile.svg" />
     <EmbeddedResource Include="Resources\Icons\ProfileUser.svg" />
+    <EmbeddedResource Include="Resources\Icons\Fingerprint.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PerrijosGatijos.Models\PerrijosGatijos.Models.csproj" />

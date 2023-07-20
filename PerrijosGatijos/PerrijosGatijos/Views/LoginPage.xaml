@@ -2,7 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:Controls="clr-namespace:PerrijosGatijos.Views.Controls"
+    xmlns:converter="clr-namespace:PerrijosGatijos.Converter"
     xmlns:Effects="clr-namespace:PerrijosGatijos.Effects"
     xmlns:ViewModels="clr-namespace:PerrijosGatijos.ViewModels"
     x:Class="PerrijosGatijos.Views.LoginPage"
@@ -12,6 +15,9 @@
     Shell.NavBarIsVisible="False"
     Shell.FlyoutBehavior="Disabled">
     <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+        </ResourceDictionary>
         <Style x:Key="ButtonAccesar" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBlue}"/>
             <Setter Property="TextColor" Value="{StaticResource White}"/>
@@ -44,8 +50,10 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontFamily" Value="Poppins-Regular" />
         </Style>
-
     </ContentPage.Resources>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding StartCommand}"/>
+    </ContentPage.Behaviors>
 
     <ContentPage.Content>
 
@@ -70,12 +78,28 @@
                         <ActivityIndicator IsRunning="{Binding IsBusy, Mode=TwoWay}" Grid.RowSpan="3" Color="Red" VerticalOptions="Center" HorizontalOptions="Center"/>
 
                         <StackLayout Style="{StaticResource EntryRow}"  >
-                            <Entry Text="{Binding Login.User, Mode=TwoWay}" x:Name="EmailEntry"  Placeholder="Usuario" PlaceholderColor="Black" Keyboard="Email" Style="{StaticResource Input}"/>
+                            <Entry Text="{Binding Login.Username, Mode=TwoWay}" x:Name="EmailEntry"  Placeholder="Usuario" PlaceholderColor="Black" Keyboard="Email"
+                                   Style="{StaticResource Input}" IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
 
                         </StackLayout>
                         <StackLayout Style="{StaticResource EntryRow}">
-                            <Entry Text="{Binding Login.Password, Mode=TwoWay}" x:Name="PasswordEntry"  Placeholder="Contraseña" PlaceholderColor="Black" IsPassword="True" Style="{StaticResource Input}"/>
+                            <Entry Text="{Binding Login.Password, Mode=TwoWay}" x:Name="PasswordEntry"  Placeholder="Contraseña" PlaceholderColor="Black" IsPassword="True"
+                                   Style="{StaticResource Input}" IsEnabled="{Binding IsBusy,Converter={StaticResource InvertedBoolConverter}}"/>
 
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource EntryRow}" Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand"
+                                     IsVisible="{Binding Login.BiometricAvailable, Mode=TwoWay}">
+                            <CheckBox IsChecked="{Binding Login.SaveCredentials, Mode=TwoWay}"/>                            
+                            <Label Text="Grabar credenciales" />
+                            <Controls:IconControl ResourceId="Fingerprint" VerticalOptions="CenterAndExpand"
+                                                  HorizontalOptions="EndAndExpand" HeightRequest="30" WidthRequest="30"
+                                                  Color="{StaticResource PrimaryBlack}" Margin="0,0,10,0"
+                                                  IsVisible="{Binding IsFingerprintAvailable}">
+                                <Controls:IconControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BiometricCommand}" />
+                                </Controls:IconControl.GestureRecognizers>
+                            </Controls:IconControl>
                         </StackLayout>
                         <Button Margin="0,10" Text="Accesar" Style="{StaticResource ButtonAccesar}"  Command="{Binding LoginCommand}" />
                         <Button x:Name="btNOlvide" Margin="0,10" Text="Olvide contrseña" Style="{StaticResource btnregistro}"  Command="{Binding FogotCommand}" />
