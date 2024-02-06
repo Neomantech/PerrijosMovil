@@ -11,6 +11,7 @@ using UIKit;
 using ObjCRuntime;
 using System.Diagnostics;
 
+
 namespace PerrijosGatijos.iOS.Services
 {
 	public class BiometryService : IBiometryService

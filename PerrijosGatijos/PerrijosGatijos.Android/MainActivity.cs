@@ -30,8 +30,7 @@ namespace PerrijosGatijos.Droid
             Manifest.Permission.AccessFineLocation,
             Manifest.Permission.ReadExternalStorage,
             Manifest.Permission.ManageExternalStorage,
-            Manifest.Permission.WriteExternalStorage,
-            Manifest.Permission.UseFingerprint
+            Manifest.Permission.WriteExternalStorage
         };
 
         protected override void OnCreate(Bundle savedInstanceState)

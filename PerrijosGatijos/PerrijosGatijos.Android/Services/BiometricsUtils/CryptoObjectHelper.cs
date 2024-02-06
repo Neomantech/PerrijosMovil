@@ -9,7 +9,7 @@ namespace BiometricUtils
 {
 	public class CryptoObjectHelper
 	{
-        public static readonly string KEY_NAME = "perrijos";
+        public static readonly string KEY_NAME = "perrijos_gatijos";
         static readonly string KEYSTORE_NAME = "AndroidKeyStore";
 
         // Should be no need to change these values.
